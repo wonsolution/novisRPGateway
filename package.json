@@ -1,15 +1,18 @@
 {
-  "name": "novistech gateway node version",
+  "name": "novisrpgateway",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "# Novistech Gateway nodejs version 1.0.0",
+  "main": "bnwReConnectSock.js",
   "dependencies": {
-    "binary-parser": "^1.6.2",
-    "moment": "^2.25.3",
-    "moment-timezone": "^0.5.28",
-    "serialport": "^9.0.0",
-    "socket.io": "^2.3.0",
-    "socket.io-as-promised": "^1.0.0"
+    "binary-parser": "^1.7.0",
+    "line-reader": "^0.4.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "n-readlines": "^1.0.1",
+    "serialport": "^9.0.6",
+    "socket.io": "^2.4.1",
+    "socket.io-as-promised": "^1.0.0",
+    "system-sleep": "^1.3.7"
   },
   "devDependencies": {},
   "scripts": {
@@ -17,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wkyoon/raspGateway.git"
+    "url": "git+https://github.com/wonsolution/novisRPGateway.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wkyoon/raspGateway/issues"
+    "url": "https://github.com/wonsolution/novisRPGateway/issues"
   },
-  "homepage": "https://github.com/wkyoon/raspGateway#readme"
+  "homepage": "https://github.com/wonsolution/novisRPGateway#readme"
 }
