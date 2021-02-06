@@ -1,0 +1,28 @@
+{
+  "name": "novistech gateway node version",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "binary-parser": "^1.6.2",
+    "moment": "^2.25.3",
+    "moment-timezone": "^0.5.28",
+    "serialport": "^9.0.0",
+    "socket.io": "^2.3.0",
+    "socket.io-as-promised": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wkyoon/raspGateway.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wkyoon/raspGateway/issues"
+  },
+  "homepage": "https://github.com/wkyoon/raspGateway#readme"
+}
