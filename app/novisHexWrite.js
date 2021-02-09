@@ -2,7 +2,7 @@ fs = require('fs');
 var sleep = require('system-sleep');
 var gap = 100;
 const lineByLine = require('n-readlines');
-const filename = '../data/AnyConMesh_071_v167_SLOPE_SUB Board_V5_2021.1.28 LTST.hex';
+//var filename = '../data/AnyConMesh_071_v167_SLOPE_SUB Board_V5_2021.1.28 LTST.hex';
 
 var myArgs = process.argv.slice(2);
 console.log('myArgs: ', myArgs);
@@ -15,27 +15,26 @@ var serialport = new SerialPort(PORT,{baudRate:BAUDRATE})
 
 
 serialport.on('open', function() {
-    console.log("open ",serialport.isOpen);
+    //console.log("open ",serialport.isOpen);
 
-    console.log(myArgs)
+    //console.log(myArgs)
     if(myArgs.length<1)
     {
-        console.log('please input target address ')
-        console.log('node novisHexWrite.js 1234')
-        console.log('\n')
-        console.log('if you want to set interval ')
-        console.log('use this command (1 sec = 1000 )')
-        console.log('node novisHexWrite.js 1234 1000')  
+        console.log('----------------------')
+        console.log('HOW TO USE')
+        console.log('node novisHexWrite.js filename addr interval')
+        console.log('ex) node novisHexWrite.js /home/pi/abc.hex 1234 1000')
+        console.log('=> file /home/pi/abc.hex send to target address 1234 by 1 second interval ')
+        console.log('----------------------')
         process.exit()
     }
-    else if(myArgs.length === 1)
+    else if(myArgs.length === 3)
     {
-        writeHex(myArgs[0])
-    }
-    else if(myArgs.length === 2)
-    {
-        gap = Number(myArgs[1])
-        writeHex(myArgs[0])
+        const filename = myArgs[0]
+        const addr = myArgs[1]
+        const interval = Number(myArgs[2])
+
+        writeHex(filename,addr,interval)
     }
     
 });
@@ -48,7 +47,7 @@ serialport.on('data', function (data) {
 
 
 //$OTA=1234:106510000AA90490FEF758F90128BED184A1FAF720\n
-function writeHex(addr)
+function writeHex(filename,addr,interval)
 {
     console.log('------> start writeHex <-------------')
     const liner = new lineByLine(filename);
@@ -63,7 +62,7 @@ function writeHex(addr)
 
         const msg = '$OTA='+addr+line.toString('utf-8')+'\n'
         console.log('--->',msg);
-        sleep(gap);
+        sleep(interval);
     }
     console.log('end programe bye bye')
     process.exit();
